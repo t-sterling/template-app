@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './App.css';
+import {BrowserRouter} from "react-router-dom";
+import {Container, Navbar, Nav} from "react-bootstrap";
+import {LinkContainer} from "react-router-bootstrap";
+import {AppRouter} from "./components/AppRouter";
+
+export const App = () => {
+
+    return (
+        <BrowserRouter>
+
+            <Navbar bg="dark" variant="dark">
+
+                <Container>
+                    <Nav>
+
+                        <Navbar.Brand>Example App</Navbar.Brand>
+
+                        <LinkContainer to="Config">
+                            <Nav.Link>Config</Nav.Link>
+                        </LinkContainer>
+
+                        <LinkContainer to="Orders">
+                            <Nav.Link>Orders</Nav.Link>
+                        </LinkContainer>
+
+                        /* ... more nav links ... */
+
+                    </Nav>
+                </Container>
+
+            </Navbar>
+
+            <AppRouter/>
+
+        </BrowserRouter>
+
+    );
+
 }
 
 export default App;
